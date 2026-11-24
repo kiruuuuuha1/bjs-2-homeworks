@@ -2,7 +2,18 @@ function compareArrays(arr1, arr2) {
     return arr1.length === arr2.length && arr1.every((element, index) => element === arr2[index]);
   
 }
+module.exports = {
+  compareArrays
+}
 
+
+function getUsersNamesInAgeRange(users, gender) {
+  const filtered = users.filter((user) => user.gender === gender);
+
+  return filtered
+    .map((user) => user.age)
+    .reduce((sum, age, index, arr) => sum + age / arr.length, 0);
+}
 const people = [
   {firstName: "Александр", secondName: "Карпов", age: 17, gender: "мужской"},
   {firstName: "Егор", secondName: "Морозов", age: 21, gender: "мужской"},
@@ -19,10 +30,3 @@ const people = [
   {firstName: "Илья", secondName: "Казаков", age: 35, gender: "мужской"},
   {firstName: "Евгений", secondName: "Кузьмин", age: 19, gender: "мужской"},
 ]
-function getUsersNamesInAgeRange(users, gender) {
-  const filtered = users.filter((user) => user.gender === gender);
-
-  return filtered
-    .map((user) => user.age)
-    .reduce((sum, age, index, arr) => sum + age / arr.length, 0);
-}
